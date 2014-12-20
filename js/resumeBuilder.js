@@ -242,7 +242,7 @@ work.display();
 projects.display();
 
 //display map
-//$("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
 
 //log click locations
 /*
