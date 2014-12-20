@@ -5,7 +5,6 @@
 var bio = {
   "name": "Felice Forby",
   "role": "Kitchen and Code Chef",
-   "welcomeMessage": "Welcome to my interactive resume! I hope you enjoy exploring :)",
   "contacts": {
     "mobile": "070-1316-3513",
     "email": "felice@cookmap.com",
@@ -13,8 +12,48 @@ var bio = {
     "twitter": "aka_charinko",
     "location": "Kamakura, Japan"
   },
-  "skills": ["Ruby on Rails", "CSS | HTML | JavaScript", "Graphic Design", "Sketch", "PhotoShop", "Illustrator", "Photography", "Fluent in Japanese", "Natural farming", "Recipe development"],
-  "bioPic": "images/profile.jpg"
+  "welcomeMessage": "Welcome to my interactive resume! I hope you enjoy exploring :)",
+  "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Fluent in Japanese", "Natural farming", "Recipe development"],
+  "bioPic": "images/profile.jpg",
+  //"display": function
+}
+
+var education = {
+  "schools": [
+    {
+      "name": "Ohio State University",
+      "location": "Columbus, OH, USA",
+      "degree": "BA",
+      "majors": ["East Asian Studies", "Japanaese"],
+      "dates": 2007,
+      "url": "https://deall.osu.edu/"
+    },
+    {
+      "name": "Ohio State University",
+      "location": "Columbus, OH, USA",
+      "degree": "MA",
+      "majors": ["Environmental and Natural Resources", "Rural Sociology"],
+      "dates": "N/A",
+      "url": "http://senr.osu.edu/"
+    },
+    {
+      "name": "Stanford Inter-University Center for Japanese Language Studies",
+      "city": "Yokohama, Japan",
+      "degree": "Certificate",
+      "majors": ["Advanced Japanese Language"],
+      "dates": 2011,
+      "url": "https://web.stanford.edu/dept/IUC/cgi-bin/"
+    }
+  ],
+  "onlineCourses": [
+    {
+      "title": "Front-End Web Developer Nanodegree",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "https://www.udacity.com/course/nd001"
+    }
+  ],
+  // "display": function
 }
 
 var work = {
@@ -47,44 +86,30 @@ var work = {
       "dates": "2007-2008",
       "description": "Private and group English instruction for children and adults."
     }
-  ]
-}
-
-var education = {
-  "schools": [
-    {
-      "name": "Ohio State University",
-      "location": "Columbus, OH, USA",
-      "degree": "BA",
-      "majors": ["East Asian Studies", "Japanaese"],
-      "dates": 2007,
-      "url": "http://osu.edu"
-    },
-    {
-      "name": "Ohio State University",
-      "location": "Columbus, OH, USA",
-      "degree": "MA",
-      "majors": ["Rural and Environmental Sociology"],
-      "dates": "N/A",
-      "url": "http://osu.edu"
-    },
-    {
-      "name": "Stanford Inter-University Center for Japanese Language Studies",
-      "city": "Yokohama, Japan",
-      "degree": "",
-      "majors": ["Advanced Japanese Language"],
-      "dates": 2011,
-      "url": "https://web.stanford.edu/dept/IUC/cgi-bin/"
-    }
   ],
-  "onlineCourses": [
-    {
-      "title": "Front-End Web Developer Nanodegree",
-      "school": "Udacity",
-      "dates": 2015,
-      "url": "https://www.udacity.com/course/nd001"
+  "display": function() {
+    for (job in work.jobs) {
+      //create new .work-entry div for each job
+      $("#workExperience").append(HTMLworkStart);
+      //format employers and titles
+      var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+      var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+      var formattedEmployerTitle = formattedEmployer + formattedTitle; //concat employer & titles
+      $(".work-entry:last").append(formattedEmployerTitle); //append to work-entry div
+
+      //format dates and add to work entry div
+      var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+      $(".work-entry:last").append(formattedDates);
+
+      //format locations and add to work entry div
+      var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+      $(".work-entry:last").append(formattedLocation);
+
+      //format descriptions and add to work entry div
+      var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+      $(".work-entry:last").append(formattedDescription);
     }
-  ]
+  }
 }
 
 var projects = {
@@ -92,7 +117,7 @@ var projects = {
     {
       "title": "Mock Up Website",
       "dates": "Dec. 2014",
-      "description": "Created a live web page based on strict design directives",
+      "description": "Created a live web page based on mock up image and strict design directives",
       "images": ["images/mockup.jpg", "images/bootstrap.jpg"]
     },
     {
@@ -101,8 +126,36 @@ var projects = {
       "description": "Interactive resume built with JavaScript",
       "images": ["images/resume.jpg"]
     }
-  ]
+  ],
+  "display": function() {
+    for (project in projects.projects) {
+      //create new .project-entry div for each project
+      $("#projects").append(HTMLprojectStart);
+
+      //format project title
+      var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      $(".project-entry:last").append(formattedTitle);
+
+      //format project dates
+      var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+      $(".project-entry:last").append(formattedDates);
+
+      //format project description
+      var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+      $(".project-entry:last").append(formattedDescription);
+
+      //format project images if present
+      if (projects.projects[project].images.length > 0) {
+        for (image in projects.projects[project].images) {
+          var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+          $(".project-entry:last").append(formattedImage);
+        }
+      }
+    }
+  }
 }
+
+
 
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
@@ -153,58 +206,11 @@ $("#skills").append(formattedSkill);
 formattedSkill = HTMLskills.replace("%data%", bio.skills[9]);
 $("#skills").append(formattedSkill);
 
-var displayWork = function() {
-  for (job in work.jobs) {
-    //create new .work-entry div for each job
-    $("#workExperience").append(HTMLworkStart);
-    //format employers and titles
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle; //concat employer & titles
-    $(".work-entry:last").append(formattedEmployerTitle); //append to work-entry div
-
-    //formate dates and add to work entry div
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    $(".work-entry:last").append(formattedDates);
-
-    //formate locations and add to work entry div
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    $(".work-entry:last").append(formattedLocation);
-
-    //formate descriptions and add to work entry div
-    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    $(".work-entry:last").append(formattedDescription);
-  }
-};
-
-displayWork();
-
-//display projects
-projects.display = function() {
-  for (project in projects.projects) {
-    //create new .project-entry div for each project
-    $("#projects").append(HTMLprojectStart);
-
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-    $(".project-entry:last").append(formattedTitle);
-
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-    $(".project-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-    $(".project-entry:last").append(formattedDescription);
-
-    if (projects.projects[project].images.length > 0) {
-      for (image in projects.projects[project].images) {
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-        $(".project-entry:last").append(formattedImage);
-        }
-      }
-    }
-};
-
+// display resume
+work.display();
 projects.display();
 
+//display map
 $("#mapDiv").append(googleMap);
 
 //log click locations
