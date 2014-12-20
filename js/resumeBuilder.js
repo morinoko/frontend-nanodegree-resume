@@ -1,5 +1,6 @@
 // Resume Data
 //////////////
+
 var bio = {
   "name": "Felice Forby",
   "role": "Kitchen and Code Chef",
@@ -57,7 +58,7 @@ var education = {
       "name": "Ohio State University",
       "location": "Columbus, OH, USA",
       "degree": "BA",
-      "majors": ["East Asian Studies", "Japanaese"],
+      "majors": ["East Asian Studies", "Japanese"],
       "dates": 2007,
       "url": "https://deall.osu.edu/"
     },
@@ -71,7 +72,7 @@ var education = {
     },
     {
       "name": "Stanford Inter-University Center for Japanese Language Studies",
-      "city": "Yokohama, Japan",
+      "location": "Yokohama, Japan",
       "degree": "Certificate",
       "majors": ["Advanced Japanese Language"],
       "dates": 2011,
@@ -86,7 +87,52 @@ var education = {
       "url": "https://www.udacity.com/course/nd001"
     }
   ],
-  // "display": function
+  "display": function() {
+    for (school in education.schools) {
+      //create new education-entry div for each school
+      $('#education').append(HTMLschoolStart);
+
+      //format and add each school with URL to education-entry
+      var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+      var formattedSchoolNameURL = formattedSchoolName.replace("#", education.schools[school].url);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+      var formattedSchoolHeading = formattedSchoolNameURL + formattedSchoolDegree;
+      $('.education-entry:last').append(formattedSchoolHeading);
+
+      //format and add grad dates to education-entry
+      var formattedSchoolDate = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+      $('.education-entry:last').append(formattedSchoolDate);
+
+      //format and add school locations to education-entry
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+      $('.education-entry:last').append(formattedSchoolLocation);
+
+      //format and add majors to education-entry
+      for (major in education.schools[school].majors) {
+        var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+        $('.education-entry:last').append(formattedSchoolMajor);
+      }
+    }
+
+    // Online Classes
+    if (education.onlineCourses.length > 0) {
+      $('#education').append(HTMLonlineClasses);
+
+      for (course in education.onlineCourses) {
+        $('#education').append(HTMLschoolStart);
+        var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+        var formattedOnlineHeading = formattedOnlineTitle + formattedOnlineSchool;
+        $('.education-entry:last').append(formattedOnlineHeading);
+
+        var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+        $('.education-entry:last').append(formattedOnlineDates);
+
+        var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+        $('.education-entry:last').append(formattedOnlineURL);
+      }
+    }
+  }
 }
 
 var work = {
@@ -191,11 +237,12 @@ var projects = {
 
 // display resume
 bio.display();
+education.display();
 work.display();
 projects.display();
 
 //display map
-$("#mapDiv").append(googleMap);
+//$("#mapDiv").append(googleMap);
 
 //log click locations
 /*
@@ -210,6 +257,7 @@ $(document).click(function(loc) {
 //add internationalize button
 
 function inName(name) {
+  var name = $('#name').text();
   name = name.trim().split(" ");
   name[1] = name[1].toUpperCase();
   name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
