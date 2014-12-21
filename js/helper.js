@@ -85,12 +85,11 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-/*
-  var x = loc.pageX;
-  var y = loc.pageY;
+ var x, y;
+ x = loc.pageX;
+ y = loc.pageY;
 
-  logClicks(,);
-*/
+ logClicks(x, y);
 });
 
 

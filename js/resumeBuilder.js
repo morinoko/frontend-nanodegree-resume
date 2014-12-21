@@ -244,18 +244,7 @@ projects.display();
 //display map
 $("#mapDiv").append(googleMap);
 
-//log click locations
-/*
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x, y);
-});
-*/
-
 //add internationalize button
-
 function inName(name) {
   var name = $('#name').text();
   name = name.trim().split(" ");
