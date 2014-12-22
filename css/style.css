@@ -8,7 +8,7 @@
   overflow: auto;
 }
 
-#education, #workExperience, #projects, #mapDiv {
+#education, #workExperience, #projects {
   padding-bottom: 50px;
 }
 
@@ -224,7 +224,8 @@ span {
 
 #map {
   display: block;
-  height: 100%;
+  height: 75%;
+  margin-top: 20px;
   margin-left: 5%;
   margin-right: 5%;
 }
