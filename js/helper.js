@@ -60,7 +60,7 @@ var googleMap = '<div id="map"></div>';
 
 
 /*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+Hooks up code to the internationalization button.
 */
 $(document).ready(function() {
   $('button').click(function() {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+Collect click locations
 */
 clickLocations = [];
 
@@ -95,28 +95,28 @@ $(document).click(function(loc) {
 
 
 /*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
+Generate the custom Google Map. See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
-var map;    // declares a global map variable
-
+var map;   // declares a global map variable
 
 /*
-Start here! initializeMap() is called when page is loaded.
+Initialize map! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    // disableDefaultUI: true,
+    streetViewControl: false,
+    panControl: true,
+    minZoom: 3
   };
 
-  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
+  // Make `map` a new Google Map JavaScript Object and attach it to
+  // <div id="map"> to be appended to page later.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -124,7 +124,7 @@ function initializeMap() {
   */
   function locationFinder() {
 
-    // initializes an empty array
+    // initializes an empty array for locations
     var locations = [];
 
     // adds the single location property from bio to the locations array
@@ -152,7 +152,7 @@ function initializeMap() {
   */
   function createMapMarker(placeData) {
 
-    // The next lines save location data from the search result object to local variables
+    // Save location data from the search result object to local variables
     var lat = placeData.geometry.location.lat();  // latitude from the place service
     var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
@@ -169,12 +169,14 @@ function initializeMap() {
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: '<p id="map-info">' + name + '</p>'
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.open(map, marker);
+      map.setZoom(5);
+      map.panTo(marker.position);
     });
 
     // this is where the pin actually gets added to the map.
