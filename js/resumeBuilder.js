@@ -202,7 +202,7 @@ var projects = {
       "title": "Mock Up Website",
       "dates": "Dec. 2014",
       "description": "Created a live web page based on mock up image and strict design directives",
-      "images": ["images/mockup.jpg", "images/bootstrap.jpg"]
+      "images": ["images/mockup.jpg"]
     },
     {
       "title": "Interactive Resume",
