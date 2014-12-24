@@ -83,6 +83,11 @@ a {
   display: block;
 }
 
+.link-heading {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -125,6 +130,10 @@ a {
 
 .green-text {
   color:  #4ca454;
+}
+
+.tan-text {
+  color: #a88644;
 }
 
 .white-text {

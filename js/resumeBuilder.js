@@ -3,7 +3,7 @@
 
 var bio = {
   "name": "Felice Forby",
-  "role": "Kitchen and Code Chef",
+  "role": "Code Chef",
   "contacts": {
     "mobile": "070-1316-3513",
     "email": "felice@cookmap.com",
@@ -12,7 +12,7 @@ var bio = {
     "location": "Kamakura, Japan"
   },
   "welcomeMessage": "Welcome to my interactive resume! I hope you enjoy exploring :)",
-  "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Fluent in Japanese", "Natural farming", "Recipe development"],
+  "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Japanese"],
   "bioPic": "images/profile.jpg",
   "display": function() {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
