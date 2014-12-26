@@ -1,0 +1,19 @@
+Resources:
+
+Google maps API:
+https://developers.google.com/maps/documentation/javascript/tutorial
+
+MDN JavaScript Reference:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+jQuery API:
+http://api.jquery.com/
+
+Stack Overflow:
+http://stackoverflow.com/questions/5054515/zoom-in-to-marker-google-maps
+
+W3 Schools CSS reference for Nav bar:
+http://www.w3schools.com/css/css_navbar.asp
+
+Flexbox reference on CSS-Tricks:
+http://css-tricks.com/snippets/css/a-guide-to-flexbox/
