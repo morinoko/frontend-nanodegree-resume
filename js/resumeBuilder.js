@@ -201,13 +201,22 @@ var projects = {
       "title": "Mock Up Website",
       "dates": "Dec. 2014",
       "description": "A project for the Front-End Web Developer Nanodegree at Udacity. I created a live web page based on a design mock up using Bootstrap.",
-      "images": ["images/mockup_project.png"]
+      "images": ["images/mockup_project.png"],
+      "url": "https://github.com/morinoko/frontend-nanodegree-project1"
     },
     {
       "title": "Interactive Resume",
       "dates": "Dec. 2014",
-      "description": "Another project for Udacity's Front-End Web Dev Nanodegree. I created an interactive resume built with JavaScript, jQuery and JSON data. It includes an interactive Google Map as well.",
-      "images": ["images/resume_project.png"]
+      "description": "Another project for Udacity's Front-End Web Dev Nanodegree and what you're looking at right now! I created an interactive resume built with JavaScript, jQuery and JSON data. It includes an interactive Google Map as well.",
+      "images": ["images/resume_project.png"],
+      "url": "https://github.com/morinoko/frontend-nanodegree-resume"
+    },
+    {
+      "title": "Izakaya Sachiko",
+      "dates": "2014",
+      "description": "A personal recipe website I built for sharing personal recipes in Japanese. Responsive for web and mobile.",
+      "images": ["images/izakaya_project.png"],
+      "url": "http://izakayasachiko.com"
     }
   ],
   "display": function() {
@@ -217,7 +226,8 @@ var projects = {
 
       //format project title and add to project entry div
       var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-      $(".project-entry:last").append(formattedTitle);
+      var formattedTitleURL = formattedTitle.replace("#", projects.projects[project].url);
+      $(".project-entry:last").append(formattedTitleURL);
 
       //format project dates and add to project entry div
       var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
