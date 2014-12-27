@@ -10,7 +10,7 @@ var bio = {
     "twitter": "aka_charinko",
     "location": "Kamakura, Japan"
   },
-  "welcomeMessage": "Welcome! I'm a junior web developer based in Kamakura, Japan and help create websites and online tools for cooking and recipe sharing. Besides coding, I love photography, graphic design, cooking and have a small farm plot where I grow my own vegetables. I hope you enjoy exploring my online resume - make yourself at home :)",
+  "welcomeMessage": "Welcome! I'm a junior web developer and translator based in Kamakura, Japan. At work I help create websites and online tools for cooking and recipe sharing. Besides coding, I dabble in photography, graphic design, and natural farming. I hope you enjoy exploring my resume - make yourself at home :)",
   "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Japanese"],
   "bioPic": "images/profile.jpg",
   "display": function() {

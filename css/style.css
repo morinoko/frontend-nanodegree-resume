@@ -27,10 +27,7 @@
 }
 
 .center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
+  padding: 2.5% 5%;
 }
 
 #header {
@@ -44,7 +41,7 @@ span {
 /* Headings and Text */
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #f5a623;
   line-height: 48px;
   display: inline;
 }
@@ -52,7 +49,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 36px;
-  color: #999999;
+  color: #999;
   line-height: 29px;
   padding: 30px 5%;
 }
@@ -60,14 +57,14 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000000;
+  color: #000;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   line-height: 17px;
 }
 
@@ -81,7 +78,7 @@ h3, h4, h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #999;
   line-height: 16px;
   float: left;
 }
@@ -96,12 +93,12 @@ h3, h4, h5 {
 
 p {
   font-size: 14px;
-  color: #333333;
+  color: #333;
   line-height: 21px;
 }
 
 a {
-  color: #1199C3;
+  color: #1199c3;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -114,13 +111,13 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
-  color: #F3F3F3;
+  font-size: 16px;
+  color: #f3f3f3;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #f5ae23;
   display: none;
 }
 
@@ -183,17 +180,17 @@ img {
 
 .white-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .gray {
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #4a4a4a;
 }
 
 /* Map */
