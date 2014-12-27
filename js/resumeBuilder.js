@@ -1,5 +1,6 @@
 // Resume Data
 
+// Bio Data
 var bio = {
   "name": "Felice Forby",
   "role": "Code Chef",
@@ -14,6 +15,7 @@ var bio = {
   "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Japanese"],
   "bioPic": "images/profile.jpg",
   "display": function() {
+    // format and append all sections of bio to header
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
 
@@ -55,6 +57,7 @@ var bio = {
   }
 }
 
+// Education Data
 var education = {
   "schools": [
     {
@@ -92,25 +95,25 @@ var education = {
   ],
   "display": function() {
     for (school in education.schools) {
-      //create new education-entry div for each school
+      // create new education-entry div for each school
       $('#education').append(HTMLschoolStart);
 
-      //format and add each school with URL to education-entry
+      // format and add each school with URL to education-entry
       var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
       var formattedSchoolNameURL = formattedSchoolName.replace("#", education.schools[school].url);
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       var formattedSchoolHeading = formattedSchoolNameURL + formattedSchoolDegree;
       $('.education-entry:last').append(formattedSchoolHeading);
 
-      //format and add grad dates to education-entry
+      // format and add grad dates to education-entry
       var formattedSchoolDate = HTMLschoolDates.replace("%data%", education.schools[school].dates);
       $('.education-entry:last').append(formattedSchoolDate);
 
-      //format and add school locations to education-entry
+      // format and add school locations to education-entry
       var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
       $('.education-entry:last').append(formattedSchoolLocation);
 
-      //format and add majors to education-entry
+      // format and add majors to education-entry
       for (major in education.schools[school].majors) {
         var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
         $('.education-entry:last').append(formattedSchoolMajor);
@@ -123,15 +126,19 @@ var education = {
 
       for (course in education.onlineCourses) {
         $('#education').append(HTMLschoolStart);
+
+        // Format Online Course titles and Headings
         var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
         var formattedOnlineTitleURL = formattedOnlineTitle.replace("#", education.onlineCourses[course].url);
         var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
         var formattedOnlineHeading = formattedOnlineTitleURL + formattedOnlineSchool;
-        $('.education-entry:last').append(formattedOnlineHeading);
+        $('.education-entry:last').append(formattedOnlineHeading); //append to education entry
 
+        // format course dates and append to education entry
         var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
         $('.education-entry:last').append(formattedOnlineDates);
 
+        // format and append course URL
         var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
         $('.education-entry:last').append(formattedOnlineURL);
       }
@@ -139,6 +146,7 @@ var education = {
   }
 }
 
+// Work Data
 var work = {
   "jobs": [
     {
@@ -146,56 +154,62 @@ var work = {
       "title": "Junior Web Developer and User Outreach",
       "location": "Kamakura, Japan",
       "dates": "2011-present",
-      "description": "I work on user aquistion, outreach and support, as well as web development and design for Cooksnaps.com and Cookmap.com."
+      "description": "I work on user aquistion, outreach and support, as well as web development and design for Cooksnaps.com and Cookmap.com.",
+      "url": "https://info.cookpad.com/"
     },
     {
       "employer": "Koganecho Area Management Center",
       "title": "Translator/Interpreter",
       "location": "Yokohama, Japan",
       "dates": "2010-2013",
-      "description": "I interpreted for events, and did translations for projects and materials for the Koganecho Art Bazaar and Community Development Initiative."
+      "description": "I interpreted for events, and did translations for projects and materials for the Koganecho Art Bazaar and Community Development Initiative.",
+      "url": "http://www.koganecho.net/"
     },
     {
       "employer": "Ohio State University",
       "title": "NSF Research Fellow",
       "location": "Wooster, OH, USA",
       "dates": "2009-2010",
-      "description": "Research associate and student teacher for Sugar Creek Project in northeast Ohio. I created interactive, long-term natural science projects for 6th grade students, while working on my own research project."
+      "description": "Research associate and student teacher for Sugar Creek Project in northeast Ohio. I created interactive, long-term natural science projects for 6th grade students, while working on my own research project.",
+      "url": "http://www.oardc.ohio-state.edu/gk12/t08_pageview2/About_.htm"
     },
     {
       "employer": "Funny Square English School",
       "title": "English Teacher",
       "location": "Kawachinagano, Japan",
       "dates": "2007-2008",
-      "description": "I was a private and group English instructor for both children and adults."
+      "description": "I was a private and group English instructor for both children and adults in Kawachinagano, in Osaka. Unfortunately there isn't a website, but the link above will take you to wikipedia for the city.",
+      "url": "http://en.wikipedia.org/wiki/Kawachinagano,_Osaka"
     }
   ],
   "display": function() {
     for (job in work.jobs) {
-      //create new .work-entry div for each job
+      // create new .work-entry div for each job
       $("#workExperience").append(HTMLworkStart);
 
-      //format employers and titles
+      // format employers and titles
       var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+      var formattedEmployerURL = formattedEmployer.replace("#", work.jobs[job].url);
       var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-      var formattedEmployerTitle = formattedEmployer + formattedTitle; //concat employer & titles
+      var formattedEmployerTitle = formattedEmployerURL + formattedTitle; //concat employer & titles
       $(".work-entry:last").append(formattedEmployerTitle); //append to work-entry div
 
-      //format dates and add to work entry div
+      // format dates and add to work entry div
       var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
       $(".work-entry:last").append(formattedDates);
 
-      //format locations and add to work entry div
+      // format locations and add to work entry div
       var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
       $(".work-entry:last").append(formattedLocation);
 
-      //format descriptions and add to work entry div
+      // format descriptions and add to work entry div
       var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
       $(".work-entry:last").append(formattedDescription);
     }
   }
 }
 
+// Project Data
 var projects = {
   "projects": [
     {
@@ -222,23 +236,23 @@ var projects = {
   ],
   "display": function() {
     for (project in projects.projects) {
-      //create new .project-entry div for each project
+      // create new .project-entry div for each project
       $("#projects").append(HTMLprojectStart);
 
-      //format project title and add to project entry div
+      // format project title and add to project entry div
       var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
       var formattedTitleURL = formattedTitle.replace("#", projects.projects[project].url);
       $(".project-entry:last").append(formattedTitleURL);
 
-      //format project dates and add to project entry div
+      // format project dates and add to project entry div
       var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
       $(".project-entry:last").append(formattedDates);
 
-      //format project description and add to project entry div
+      // format project description and add to project entry div
       var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
       $(".project-entry:last").append(formattedDescription);
 
-      //format project images if present and add to project entry div
+      // format project images if present and add to project entry div
       if (projects.projects[project].images.length > 0) {
         for (image in projects.projects[project].images) {
           var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
@@ -255,10 +269,10 @@ work.display();
 projects.display();
 education.display();
 
-//display map
+// display map
 $("#mapDiv").append(googleMap);
 
-//add internationalize button
+// add internationalize button
 function inName(name) {
   var name = $('#name').text();
   name = name.trim().split(" ");
