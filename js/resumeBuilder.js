@@ -124,8 +124,9 @@ var education = {
       for (course in education.onlineCourses) {
         $('#education').append(HTMLschoolStart);
         var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+        var formattedOnlineTitleURL = formattedOnlineTitle.replace("#", education.onlineCourses[course].url);
         var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
-        var formattedOnlineHeading = formattedOnlineTitle + formattedOnlineSchool;
+        var formattedOnlineHeading = formattedOnlineTitleURL + formattedOnlineSchool;
         $('.education-entry:last').append(formattedOnlineHeading);
 
         var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
@@ -142,7 +143,7 @@ var work = {
   "jobs": [
     {
       "employer": "Cookpad",
-      "title": "Junior Web Developer and Customer Development Specialist",
+      "title": "Junior Web Developer and User Outreach",
       "location": "Kamakura, Japan",
       "dates": "2011-present",
       "description": "I work on user aquistion, outreach and support, as well as web development and design for Cooksnaps.com and Cookmap.com."
@@ -250,9 +251,9 @@ var projects = {
 
 // display resume
 bio.display();
-education.display();
 work.display();
 projects.display();
+education.display();
 
 //display map
 $("#mapDiv").append(googleMap);
