@@ -1,16 +1,5 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
+HTML strings for inputing JSON data that constructs the resume.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span class="tan-text">%data%</span><hr/>';
@@ -92,8 +81,6 @@ $(document).click(function(loc) {
  logClicks(x, y);
 });
 
-
-
 /*
 Generate the custom Google Map. See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
@@ -165,22 +152,19 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
+    // infoWindows that shows location info
     var infoWindow = new google.maps.InfoWindow({
       content: '<p id="map-info">' + name + '</p>'
     });
 
-    // hmmmm, I wonder what this is about...
+    // Click event that opens info window and zooms to location on map
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.open(map, marker);
       map.setZoom(5);
       map.panTo(marker.position);
     });
 
-    // this is where the pin actually gets added to the map.
-    // bounds.extend() takes in a map location object
+    // Add pins to map.
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
     map.fitBounds(bounds);
@@ -204,8 +188,8 @@ function initializeMap() {
   */
   function pinPoster(locations) {
 
-    // creates a Google place search service object. PlacesService does the work of
-    // actually searching for location data.
+    // creates a Google place search service object and PlacesService
+    // searches for location data.
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
@@ -216,7 +200,7 @@ function initializeMap() {
         query: locations[place]
       };
 
-      // Actually searches the Google Maps API for location data and runs the callback
+      // Search the Google Maps API for location data and runs the callback
       // function with the search results after each search.
       service.textSearch(request, callback);
     }
@@ -234,15 +218,10 @@ function initializeMap() {
 
 }
 
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
-
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
+// Listen for resizing of the window and adjust map bounds
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
