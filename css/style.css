@@ -208,6 +208,11 @@ img {
   padding-bottom: 5%;
 }
 
+/* Internationalize Button */
+button {
+  padding: 4px 10px;
+}
+
 /* Navigation */
 .navigation {
   padding-top: 1%;
