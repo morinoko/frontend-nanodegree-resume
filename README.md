@@ -8,6 +8,6 @@ Building an interactive resume using JavaScript, jQuery and JSON for the Udacity
 3. Working with HTML and CSS
 4. Creating interactive Google Maps using custom data
 
-### By the end:
-![](images/resume.jpg)
+### Screenshot:
+![](images/resume_screenshot.png)
 

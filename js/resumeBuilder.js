@@ -1,5 +1,4 @@
 // Resume Data
-//////////////
 
 var bio = {
   "name": "Felice Forby",
@@ -11,7 +10,7 @@ var bio = {
     "twitter": "aka_charinko",
     "location": "Kamakura, Japan"
   },
-  "welcomeMessage": "Welcome to my interactive resume! I hope you enjoy exploring :)",
+  "welcomeMessage": "Welcome! I'm a junior web developer based in Kamakura, Japan and help create websites and online tools for cooking and recipe sharing. Besides coding, I love photography, graphic design, cooking and have a small farm plot where I grow my own vegetables. I hope you enjoy exploring my online resume - make yourself at home :)",
   "skills": ["Ruby on Rails", "CSS | HTML", "JavaScript", "Sketch", "PhotoShop", "Photography", "Japanese"],
   "bioPic": "images/profile.jpg",
   "display": function() {
@@ -202,13 +201,13 @@ var projects = {
       "title": "Mock Up Website",
       "dates": "Dec. 2014",
       "description": "Created a live web page based on mock up image and strict design directives",
-      "images": ["images/mockup.jpg"]
+      "images": ["images/mockup_project.png"]
     },
     {
       "title": "Interactive Resume",
       "dates": "Dec. 2014",
       "description": "Interactive resume built with JavaScript",
-      "images": ["images/resume.jpg"]
+      "images": ["images/resume_project.png"]
     }
   ],
   "display": function() {
