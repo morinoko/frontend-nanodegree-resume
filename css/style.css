@@ -141,6 +141,11 @@ img {
   padding: 10px;
 }
 
+.project-image {
+  max-width: 100%;
+  margin-top: 10px;
+}
+
 /* Colors */
 .orange {
   background-color: #e18728;
