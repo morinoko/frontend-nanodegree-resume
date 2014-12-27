@@ -17,6 +17,31 @@
   padding-right: 5%;
 }
 
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.center-content {
+  padding-top: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2.5%
+}
+
+#header {
+  background-color: #474747;
+}
+
+span {
+  padding: 5px;
+}
+
+/* Headings and Text */
 h1 {
   font-size: 40px;
   color: #F5A623;
@@ -67,7 +92,6 @@ h3, h4, h5 {
   color: #f5a623;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -100,6 +124,27 @@ a {
   display: none;
 }
 
+#letsConnect {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Images */
+.biopic {
+  float: left;
+  padding: 10px;
+  width: 200px;
+  display: none;
+}
+
+img {
+  padding: 10px;
+}
+
+/* Colors */
 .orange {
   background-color: #e18728;
 }
@@ -151,62 +196,47 @@ a {
   background-color: #4A4A4A;
 }
 
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+/* Map */
+#map {
+  display: block;
+  height: 75%;
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
 }
 
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
+/* Navigation */
+.navigation {
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
-ul {
-  list-style-type: none;
+.nav {
+  margin: 0;
+  padding: 0;
 }
 
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+.nav li {
+    display: inline-block;
+    padding: 5px 15px;
+    text-align: center;
 }
 
-img {
-  padding: 10px;
+.nav li:hover {
+  background-color: black;
 }
 
-/* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
+.nav a {
+    margin: 0;
 }
 
-span {
-  padding: 5px;
-}
-
-#letsConnect {
-  text-align: center;
-}
-
+/* Responsive */
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
@@ -231,48 +261,9 @@ span {
   }
 }
 
-#map {
-  display: block;
-  height: 75%;
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
 @media only screen and (min-width: 750px) {
   #skillsH3,
   .biopic {
     display: block;
   }
 }
-
-/* Navigation */
-.navigation {
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.nav {
-  margin: 0;
-  padding: 0;
-}
-
-.nav li {
-    display: inline-block;
-    padding: 5px 15px;
-    text-align: center;
-}
-.nav a {
-    margin: 0;
-}
-
-
-
-
-
