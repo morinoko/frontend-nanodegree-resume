@@ -70,7 +70,7 @@ var education = {
       "location": "Columbus, OH, USA",
       "degree": "MA",
       "majors": ["Environmental and Natural Resources", "Rural Sociology"],
-      "dates": "N/A",
+      "dates": "2013",
       "url": "http://senr.osu.edu/"
     },
     {
@@ -145,28 +145,28 @@ var work = {
       "title": "Junior Web Developer and Customer Development Specialist",
       "location": "Kamakura, Japan",
       "dates": "2011-present",
-      "description": "User aquistion and support, web dev for Cooksnaps.com and Cookmap.com."
+      "description": "I work on user aquistion, outreach and support, as well as web development and design for Cooksnaps.com and Cookmap.com."
     },
     {
       "employer": "Koganecho Area Management Center",
       "title": "Translator/Interpreter",
       "location": "Yokohama, Japan",
       "dates": "2010-2013",
-      "description": "Translation and interpretation for events, projects and materials for the Koganecho Art Bazaar and Community Development Project."
+      "description": "I interpreted for events, and did translations for projects and materials for the Koganecho Art Bazaar and Community Development Initiative."
     },
     {
       "employer": "Ohio State University",
       "title": "NSF Research Fellow",
       "location": "Wooster, OH, USA",
       "dates": "2009-2010",
-      "description": "Research associate and student teacher for Sugar Creek Project in northeast Ohio."
+      "description": "Research associate and student teacher for Sugar Creek Project in northeast Ohio. I created interactive, long-term natural science projects for 6th grade students, while working on my own research project."
     },
     {
       "employer": "Funny Square English School",
       "title": "English Teacher",
       "location": "Kawachinagano, Japan",
       "dates": "2007-2008",
-      "description": "Private and group English instruction for children and adults."
+      "description": "I was a private and group English instructor for both children and adults."
     }
   ],
   "display": function() {
@@ -200,13 +200,13 @@ var projects = {
     {
       "title": "Mock Up Website",
       "dates": "Dec. 2014",
-      "description": "Created a live web page based on mock up image and strict design directives",
+      "description": "A project for the Front-End Web Developer Nanodegree at Udacity. I created a live web page based on a design mock up using Bootstrap.",
       "images": ["images/mockup_project.png"]
     },
     {
       "title": "Interactive Resume",
       "dates": "Dec. 2014",
-      "description": "Interactive resume built with JavaScript",
+      "description": "Another project for Udacity's Front-End Web Dev Nanodegree. I created an interactive resume built with JavaScript, jQuery and JSON data. It includes an interactive Google Map as well.",
       "images": ["images/resume_project.png"]
     }
   ],
@@ -259,15 +259,3 @@ function inName(name) {
 };
 
 $("#main").append(internationalizeButton);
-
-
-
-
-
-
-
-
-
-
-
-
